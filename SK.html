@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>極簡企業官網</title>
+    <style>
+        /* CSS 樣式設定 */
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --text-light: #ffffff;
+            --text-dark: #333;
+        }
+
+        body {
+            font-family: "Microsoft JhengHei", Arial, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        /* 導覽列 */
+        nav {
+            background: var(--primary-color);
+            color: var(--text-light);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .logo { font-size: 1.5rem; font-weight: bold; }
+        nav ul { list-style: none; display: flex; margin: 0; }
+        nav ul li { margin-left: 20px; }
+        nav ul li a { color: white; text-decoration: none; transition: 0.3s; }
+        nav ul li a:hover { color: var(--accent-color); }
+
+        /* 英雄區 (Hero Section) */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; margin-bottom: 20px; }
+        .btn {
+            background: var(--accent-color);
+            color: white;
+            padding: 10px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        /* 內容區塊 */
+        .container {
+            padding: 60px 10%;
+            text-align: center;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            padding: 30px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+        /* 頁尾 */
+        footer {
+            background: #f4f4f4;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">我的品牌</div>
+        <ul>
+            <li><a href="#home">首頁</a></li>
+            <li><a href="#services">服務</a></li>
+            <li><a href="#contact">聯絡我們</a></li>
+        </ul>
+    </nav>
+
+    <header id="home" class="hero">
+        <h1>用科技創造未來</h1>
+        <p>提供最專業的數位轉型解決方案</p>
+        <a href="#services" class="btn">了解更多</a>
+    </header>
+
+    <section id="services" class="container">
+        <h2>我們的服務</h2>
+        <div class="services">
+            <div class="service-card">
+                <h3>網頁設計</h3>
+                <p>打造美觀、流暢且具備SEO優化的現代化網站。</p>
+            </div>
+            <div class="service-card">
+                <h3>雲端整合</h3>
+                <p>協助企業將資料安全地遷移至雲端，提升作業效率。</p>
+            </div>
+            <div class="service-card">
+                <h3>數據分析</h3>
+                <p>透過數據洞察市場趨勢，做出最精準的商業決策。</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <p>© 2026 我的品牌公司 版權所有</p>
+        <p>Email: contact@mybrand.com | 電話: (02) 1234-5678</p>
+    </footer>
+
+    <script>
+        // 平滑捲動功能
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
